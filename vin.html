@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: whitesmoke;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: rgb(42, 165, 89);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #000;
+      display: flex;
+      overflow: hidden;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: aliceblue;
+      color: black;
+    }
+
+    main {
+      flex: 1;
+      margin: 20px;
+      padding: 40px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    main h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: rgb(42, 165, 89);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+      resize: vertical;
+    }
+
+    button {
+      background-color: rgb(42, 165, 89);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 200px;
+      align-self: center;
+    }
+
+    button:hover {
+      background-color: rgb(32, 135, 70);
+    }
+
+    #hasil {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #f4f4f4;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    footer {
+      background-color: rgb(4, 122, 83);
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+
+  <script>
+    function kirimFormulir(event) {
+      event.preventDefault();
+
+      const nama = document.getElementById('nama').value;
+      const email = document.getElementById('email').value;
+      const pesan = document.getElementById('pesan').value;
+
+      const dataUser = { nama, email, pesan };
+      localStorage.setItem('dataUser', JSON.stringify(dataUser));
+
+      tampilkanData();
+    }
+
+    function tampilkanData() {
+      const raw = localStorage.getItem('dataUser');
+      if (!raw) return;
+
+      const user = JSON.parse(raw);
+      const hasil = document.getElementById('hasil');
+
+      hasil.innerHTML = `
+        <h3>Data Tersimpan:</h3>
+        <p><strong>Nama:</strong> ${escapeHtml(user.nama)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(user.email)}</p>
+        <p><strong>Pesan:</strong> ${escapeHtml(user.pesan)}</p>
+      `;
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    window.onload = tampilkanData;
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to My Website</h1>
+    <p>This is a simple layout example</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Tentang</a>
+    <a href="vin.html">Kontak</a>
+  </nav>
+
+  <main>
+    <h1>Formulir Data Pengguna</h1>
+
+    <form id="formuser" onsubmit="kirimFormulir(event)">
+      <div>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" required>
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div>
+        <label for="pesan">Pesan:</label>
+        <textarea id="pesan" name="pesan" rows="3" required></textarea>
+      </div>
+
+      <button type="submit">Simpan Data</button>
+    </form>
+
+    <div id="hasil"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 My Website</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="judul">Halo Dunia</h1>
+    <button onclick="ubahTeks()">Klik Saya</button>
+    <button onclick="Tombol2()">Reset</button>
+
+    <script>
+        function Tombol2() {
+            document.getElementById("Hasil").textContent = "Selamat Datang di JavaScript";
+        }
+    </script>
+
+    <script>
+        function ubahTeks(){
+            let jawaban = confirm(Apakah anda yakin dengan jawaban);
+            if (jawaban === true) {
+            document.getElementById(Hasil).textContent = "Selamat Datang di JavaScript";
+        }else {
+                document.getElementById(Hasil).textContent = "Selamat Datang di JavaScript";
+            }
+        }
+    </script>
+</body>
+</html>

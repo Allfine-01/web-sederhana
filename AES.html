@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layout Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: whitesmoke;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: rgb(42, 165, 89);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #000;
+      display: flex;
+      overflow: hidden;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: aliceblue;
+      color: black;
+    }
+    main {
+      margin: 20px;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      text-align: justify;
+    }
+    main p {
+      font-size: 1.15em;
+      margin-bottom: 18px;
+    }
+    footer {
+      background-color: rgb(4, 122, 83);
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <p>This is a simple layout example</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="AES.html">Tentang</a>
+        <a href="vin.html">Kontak</a>
+    </nav>
+
+    <main>
+        <p>Hello and welcome! This website is a reflection of my journey in learning, creating, and sharing knowledge about web design and development.</p>
+        <p>Here, you’ll find my latest projects, tutorials, and insights — all built with passion and curiosity for technology and creativity.</p>
+        <p>I’m glad you stopped by. Feel free to look around and get in touch if you’d like to collaborate or share ideas!</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Website</p>
+    </footer>
+</body>
+</html>

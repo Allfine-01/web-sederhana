@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="judul">Halo Dunia</h1>
+    <button onclick="ubahTeks()">Klik Saya</button>
+    <button onclick="tombol2()">reset</button>
+    <p id="hasil"></p>
+
+    <script>
+        function tombol2() {
+            document.getElementById("hasil").innerHTML = "Selamat Datang di JavaScript";
+        }
+    </script>
+
+    <script>
+        function ubahTeks() {
+            let jawaban = confirm("apakah anda yakin?");
+            if (jawaban === true){
+                document.getElementById("hasil").textContent = "anda menekan tombol ok";
+            } else {
+                document.getElementById("hasil").textContent = "anda menekan tombol cencel";
+            }
+        }
+    </script>
+
+    <script>
+        function tombol2() {
+            let jawaban = confirm("apakah anda yakin ?");
+            if (jawaban ===true) {
+                document.getElementById("hasil").textContent = "anda menekan tombol reset";
+            } else {
+                document.getElementById("hasil").textContent = "anda menekan tombol cancel"
+            }
+        }
+    </script>
+</body>
+</html>
